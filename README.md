@@ -13,28 +13,28 @@ The workflow consists of the following:
 
 ## Code Files
 
-### ct_registration.py
+### ```ct_registration.py```
 Performs registration of postoperative CT images to MNI space, transforms the atlas into patient space, and extracts binary brain-region intersection vectors from DBS lead segmentations. Returns folder containing all transformed images and excel file containing brain region vectors.
 
-### mri_registration.py
+### ```mri_registration.py```
 MRI version of image registration pipeline. Returns folder containing all transformed images and excel file containing brain region vectors.
 
-### combined_dataset.py
+### ```combined_dataset.py```
 Combine CT image and MR image datasets for downstream analysis and appends covariate data including age, sex, number of leads, DBS target, and baseline MDS-UPDRS score. Outputs LEDD outcomes dataset and MoCA outcomes dataset in excel file format.
 
-### motor_lasso_ridge.py
+### ```motor_lasso_ridge.py```
 Performs stability-selected LASSO feature selection and ridge regression modeling for motor outcomes. Also runs OLS modesl comparing model containing clnical covariates only and model containing both clinical covariates and selected brain region features. Returns LASSO feature selection bar plot, ridge regression coefficients and 95% confidence intervals plot, and csv files containing OLS results and ridge regression results.
 
-### cog_lasso_ridge.py
+### ```cog_lasso_ridge.py```
 Performs stability-selected LASSO feature selection and ridge regression modeling for cognitive outcomes. Returns LASSO feature selection bar plot, ridge regression coefficients and 95% confidence intervals plot, and csv files containing ridge regression results.
 
-###  plot_lasso_path.py
+###  ```plot_lasso_path.py```
 Generates plots of LASSO coefficient paths and feature selection frequencies across different values of alpha (regularization parameter).
 
-### plot_strat_target.py
+### ```plot_strat_target.py```
 Creates plot illustrating ridge regression results from dataset stratified by target (GPi vs. STN).
 
-## Dataset
+## Data
 
 ### LEDD_dataset
 Motor outcome dataset containing:
