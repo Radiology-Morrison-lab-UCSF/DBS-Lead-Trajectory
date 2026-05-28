@@ -32,10 +32,10 @@ def fill_missing_from_ledd(
     LEDDpost2_Delta → LEDDpost3_Delta → LEDDpost4_Delta
     """
 
-    # Load LEDD spreadsheet
+    # load LEDD spreadsheet
     ledd_df = pd.read_excel(ledd_file_path)
 
-    # Rename / standardize columns
+    # rename and standardize columns
     ledd_df = ledd_df.rename(columns={
         "PTID_Retro_Clin": "Patient_ID",
         "Sex": "Sex_LEDD",
@@ -45,7 +45,7 @@ def fill_missing_from_ledd(
         "Base_MDSUPDRS": "MDSUPDRSIIIpre_Percent_TOTAL_V"
     })
 
-    # Columns needed from LEDD
+    # columns needed from LEDD
     ledd_cols = [
         "Patient_ID",
         "LEDDpost2_Delta",
@@ -60,7 +60,7 @@ def fill_missing_from_ledd(
 
     ledd_df = ledd_df[ledd_cols].drop_duplicates("Patient_ID")
 
-    # Merge
+    # merge
     df = df.merge(
         ledd_df,
         on="Patient_ID",
@@ -71,7 +71,7 @@ def fill_missing_from_ledd(
     print(f"Number of patients after merging with LEDD data: {df.shape[0]}")
     print(f"Columns after merge: {df.columns.tolist()}")
 
-    # ---- OUTCOME: priority fill ----
+    # ifll in outcome based on priority
     before = df["Outcome"].isna().sum()
 
     df["Outcome"] = df["Outcome"].combine_first(
@@ -85,7 +85,7 @@ def fill_missing_from_ledd(
     after = df["Outcome"].isna().sum()
     print(f"Outcome: filled {before - after} values")
 
-    # ---- OTHER COVARIATES ----
+    # create covariates map
     covariate_map = {
         "Sex": "Sex_LEDD",
         "No_Leads": "No_Leads_LEDD",
@@ -103,7 +103,7 @@ def fill_missing_from_ledd(
         after = df[df_col].isna().sum()
         print(f"{df_col}: filled {before - after} values")
 
-    # Drop helper columns
+    # drop helper columns
     df = df.drop(
         columns=[
             "LEDDpost2_Delta",
@@ -116,8 +116,6 @@ def fill_missing_from_ledd(
             "MDSUPDRSIIIpre_Percent_TOTAL_V"
         ]
     )
-
-
     return df
 
 
