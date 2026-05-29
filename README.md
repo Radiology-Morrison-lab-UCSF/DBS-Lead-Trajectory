@@ -59,4 +59,10 @@ Motor outcome dataset containing:
 Brain atlas folder containing atlas file and adjoining ROI text file for region identification.
 
 # Licenses
-Copyright 2026 UCSF
+**Copyright 2026 UCSF**
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at:  
+[http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+- All code files in this repository are licensed under the Apache License 2.0.
+- `ledd_dataset.xlsx` and `moca_dataset.xlsx` were acquired at the University of California San Francisco and are licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).
