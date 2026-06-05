@@ -44,7 +44,7 @@ An excel file LEDD outcome dataset containing:
 - Binary brain region features
 - DBS target (STN vs. GPi)
 - Hemispheres Treated (Bilateral vs. Unilateral)
-- %Δ MDS-UPDRS III (percent improvement in Movement Disorder Society Unified Parkinson’s Disease Rating Scale Part III motor scores between OFF- and ON-medication states)
+- Dopaminergic responsiveness (percent improvement in MDS-UPDRS III motor scores between OFF- and ON-medication states)
 - Sex
 - Age
 
@@ -55,7 +55,7 @@ An excel file MoCA outcome dataset containing:
 - Binary brain region features
 - DBS target (STN vs. GPi)
 - Hemispheres Treated (Bilateral vs. Unilateral)
-- %Δ MDS-UPDRS III (percent improvement in Movement Disorder Society Unified Parkinson’s Disease Rating Scale Part III motor scores between OFF- and ON-medication states)
+- Dopaminergic responsiveness (percent improvement in MDS-UPDRS III motor scores between OFF- and ON-medication states)
 - Sex
 - Age
 
