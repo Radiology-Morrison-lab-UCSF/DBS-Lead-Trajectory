@@ -1,6 +1,6 @@
 # DBS Lead Trajectory
 
-This project performs image registration and atlas-based feature extraction for deep brain stimulation (DBS) lead trajectory analysis in individuals with Parkinson's disease. The pipeline registers patient postoperative imaging (CT and MRI) to MNI space, transforms a brain atlas into patient space, and identifies atlas-defined brain regions intersected by DBS lead trajectory segmentations. The brain region features are used for downstream statistical modeling of postoperative motor and cognitive outcomes.
+This repository performs image registration and atlas-based feature extraction for deep brain stimulation (DBS) lead trajectory analysis in individuals with Parkinson's disease. The pipeline registers patient postoperative imaging (CT and MRI) to MNI space, transforms a brain atlas into patient space, and identifies atlas-defined brain regions intersected by DBS lead trajectory segmentations. The repository is part of ongoing research in the Radiology-Morrison-lab-UCSF.
 
 ## Project Overview
 The workflow consists of the following:
@@ -14,30 +14,31 @@ The workflow consists of the following:
 ## Code Files
 
 ### ```ct_registration.py```
-Performs registration of postoperative CT images to MNI space, transforms the atlas into patient space, and extracts binary brain-region intersection vectors from DBS lead segmentations. Returns folder containing all transformed images and excel file containing brain region vectors.
+A Python code file that performs ANTs image registration of postoperative CT images to MNI space, transforms the atlas into patient space, and extracts binary brain-region intersection vectors from DBS lead segmentations. Returns folder containing all transformed images and excel file containing brain region vectors.
 
 ### ```mri_registration.py```
-MRI version of image registration pipeline. Returns folder containing all transformed images and excel file containing brain region vectors.
+A Python code file containing an image registration pipeline for MRI using ANTs. Returns folder containing all transformed images and excel file containing brain region vectors.
 
 ### ```combined_dataset.py```
-Combine CT image and MR image datasets for downstream analysis and appends covariate data including age, sex, number of leads, DBS target, and baseline MDS-UPDRS score. Outputs LEDD outcomes dataset and MoCA outcomes dataset in excel file format.
+A Python code file to combine CT image and MR image datasets for downstream analysis and appends covariate data including age, sex, number of leads, DBS target, and baseline MDS-UPDRS score. Outputs LEDD outcomes dataset and MoCA outcomes dataset in excel file format.
 
-### ```motor_lasso_ridge.py```
-Performs stability-selected LASSO feature selection and ridge regression modeling for motor outcomes. Also runs OLS modesl comparing model containing clnical covariates only and model containing both clinical covariates and selected brain region features. Returns LASSO feature selection bar plot, ridge regression coefficients and 95% confidence intervals plot, and csv files containing OLS results and ridge regression results.
+### ```ledd_lasso_ridge.py```
+A Python code file to perform stability-selected LASSO feature selection and ridge regression modeling for LEDD outcomes. Also runs OLS modesl comparing model containing clnical covariates only and model containing both clinical covariates and selected brain region features. Returns LASSO feature selection bar plot, ridge regression coefficients and 95% confidence intervals plot, and csv files containing OLS results and ridge regression results.
 
-### ```cog_lasso_ridge.py```
-Performs stability-selected LASSO feature selection and ridge regression modeling for cognitive outcomes. Returns LASSO feature selection bar plot, ridge regression coefficients and 95% confidence intervals plot, and csv files containing ridge regression results.
+### ```moca_lasso_ridge.py```
+A Python code file to perform stability-selected LASSO feature selection and ridge regression modeling for MoCA outcomes. Returns LASSO feature selection bar plot, ridge regression coefficients and 95% confidence intervals plot, and csv files containing ridge regression results.
 
 ###  ```plot_lasso_path.py```
-Generates plots of LASSO coefficient paths and feature selection frequencies across different values of alpha (regularization parameter).
+A Python code file to generate plots of LASSO coefficient paths and feature selection frequencies across different values of alpha (regularization parameter).
 
 ### ```plot_strat_target.py```
-Creates plot illustrating ridge regression results from dataset stratified by target (GPi vs. STN).
+A Python code file to generate plots illustrating ridge regression results from dataset stratified by target (GPi vs. STN).
 
 ## Data
+The included data is derived from real patient data but has been de-identified to comply with ethical guidelines.
 
-### LEDD_dataset
-Motor outcome dataset containing:
+### LEDD_dataset.xlsx
+An excel file LEDD outcome dataset containing:
 - Patient ID
 - Percent change in levodopa equivalent daily dose (ΔLEDD)
 - Binary brain region features
@@ -46,7 +47,8 @@ Motor outcome dataset containing:
 - Sex
 - Age
 
-### Cognitive_dataset
+### MoCA_dataset.xlsx
+An excel file MoCA outcome dataset containing:
 - Patient ID
 - MoCA Simple Discrepency Score (SDS)
 - Binary brain region features
@@ -56,7 +58,7 @@ Motor outcome dataset containing:
 - Age
 
 ## Atlases
-Brain atlas folder containing atlas file and adjoining ROI text file for region identification.
+Brain atlas folder containing atlas file (```Atlas_QSM.nii``` and ```Atlas_QSMdgm.nii```) and adjoining ROI text file (```Atlas_QSM.txt``` and ```Atlas_QSMdgm.txt```)for region identification.
 
 # Licenses
 **Copyright 2026 UCSF**
