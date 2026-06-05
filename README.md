@@ -43,7 +43,8 @@ An excel file LEDD outcome dataset containing:
 - Percent change in levodopa equivalent daily dose (ΔLEDD)
 - Binary brain region features
 - DBS target (STN vs. GPi)
-- Baseline Movement Disorder Society Unified Parkinson’s Disease Rating Scale Part III (MDS-UPDRS) score
+- Hemispheres Treated (Bilateral vs. Unilateral)
+- %Δ MDS-UPDRS III (percent improvement in Movement Disorder Society Unified Parkinson’s Disease Rating Scale Part III motor scores between OFF- and ON-medication states)
 - Sex
 - Age
 
@@ -53,7 +54,8 @@ An excel file MoCA outcome dataset containing:
 - MoCA Simple Discrepency Score (SDS)
 - Binary brain region features
 - DBS target (STN vs. GPi)
-- Baseline Movement Disorder Society Unified Parkinson’s Disease Rating Scale Part III (MDS-UPDRS) score
+- Hemispheres Treated (Bilateral vs. Unilateral)
+- %Δ MDS-UPDRS III (percent improvement in Movement Disorder Society Unified Parkinson’s Disease Rating Scale Part III motor scores between OFF- and ON-medication states)
 - Sex
 - Age
 
